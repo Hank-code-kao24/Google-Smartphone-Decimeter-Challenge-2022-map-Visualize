@@ -20,7 +20,7 @@ import pandas as pd</code></pre>
 
 <pre><code>folders = glob.glob(folder_pattern)</code></pre>
 <br>
-5. 過濾出日期大於等於 2021-10-29 的資料夾
+5. 過濾出日期資料夾
 
 <pre><code>filtered_folders = []
 for folder in folders:
