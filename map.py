@@ -7,11 +7,11 @@ import pandas as pd
 start_date = datetime.datetime(2021, 10, 29)
 
 # 資料夾路徑模式
-folder_pattern = "/kaggle/input/smartphone-decimeter-2022/train/20**MTV-1"
+folder_pattern = "/kaggle/input/smartphone-decimeter-2022/train/20**MTV-1"#MTV為地區
 # 獲取所有匹配的資料夾
 folders = glob.glob(folder_pattern)
 
-# 過濾出日期大於等於2020-05-25的資料夾
+# 塞選日期
 filtered_folders = []
 file_ground_truth_folders=[]
 file_device_gnss_folders=[]
@@ -29,17 +29,9 @@ for folder in folders:
 # 打印符合條件的資料夾
 for folder in filtered_folders:
     for file in glob.glob(f"{folder}/**/ground_truth.csv", recursive=True):
-    # 檢查是否為檔案，因為 glob 也會返回目錄
+    # 檢查是否為檔案
         if os.path.isfile(file):
             file_ground_truth_folders.append(file)
-    for file in glob.glob(f"{folder}/**/device_imu.csv", recursive=True):
-    # 檢查是否為檔案，因為 glob 也會返回目錄
-        if os.path.isfile(file):
-            file_device_imu_folders.append(file)
-    for file in glob.glob(f"{folder}/**/device_gnss.csv", recursive=True):
-    # 檢查是否為檔案，因為 glob 也會返回目錄
-        if os.path.isfile(file):
-            file_device_gnss_folders.append(file)
 
 len(file_ground_truth_folders)
 for k in range(0, len(file_ground_truth_folders)):
