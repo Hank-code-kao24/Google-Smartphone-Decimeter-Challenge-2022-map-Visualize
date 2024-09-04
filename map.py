@@ -1,4 +1,3 @@
-#%%
 import plotly.express as px
 import glob
 import datetime
@@ -8,7 +7,7 @@ import pandas as pd
 start_date = datetime.datetime(2021, 10, 29)
 
 # 資料夾路徑模式
-folder_pattern = "E:\\python\\論文程式\\SINS\\smartphone-decimeter-2022\\train\\20**MTV-1"
+folder_pattern = "/kaggle/input/smartphone-decimeter-2022/train/20**MTV-1"
 # 獲取所有匹配的資料夾
 folders = glob.glob(folder_pattern)
 
@@ -59,5 +58,4 @@ for k in range(0, len(file_ground_truth_folders)):
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
     fig.update_layout(title_text="GPS trafic")
     fig.show()
-
-# %%
+print(folders)
